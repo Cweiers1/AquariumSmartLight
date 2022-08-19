@@ -1,0 +1,25 @@
+{
+  "name": "aquariumsmartlight",
+  "version": "1.0.0",
+  "description": "diy web based smart aquarium light",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cweiers1/AquariumSmartLight.git"
+  },
+  "author": "Castor Weiers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cweiers1/AquariumSmartLight/issues"
+  },
+  "homepage": "https://github.com/Cweiers1/AquariumSmartLight#readme",
+  "dependencies": {
+    "epoll": "^4.0.1",
+    "express": "^4.18.1",
+    "node-gyp": "^9.1.0",
+    "onoff": "^6.0.3"
+  }
+}
