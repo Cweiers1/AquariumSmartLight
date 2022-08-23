@@ -4,6 +4,7 @@ const port = 5000;
 //const Gpio = require("pigpio").Gpio;
 
 const { Worker, parentPort, workerData, isMainThread } = require('worker_threads');
+const { dataPort, reqPort, resPort } = new MessageChannel();
 
 
 //spawns a worker thread to run the web server
@@ -28,4 +29,18 @@ const run = async () => {
 }
 
 run().catch(err => console.error(err));
+
+dataPort.once("message", (message) => {
+    console.log(message)
+})
+
+
+
+
+
+
+
+
+
+
 

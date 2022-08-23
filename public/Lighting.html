@@ -4,8 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, inital-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">     
+        <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">   
+        <link rel="stylesheet" href="style.css">  
     </head>
 
     <body>
@@ -43,11 +43,11 @@
                 </div>
               </nav>
               
-            <div class="card">
-              <form class="col-4 card-body">
+            <div class="card col-16 col-lg-4">
+              <form class="card-body" id="colorPicker">
                 <input type="color" class="form-control form-control-color">
-                <input type="range" min="0" max="100" class="form-range col-16">
-                <input type="range" min="0" max="100" class="form-range col-16"> 
+                <input type="range" min="0" max="100" class="form-range col-16" id="warmLed">
+                <input type="range" min="0" max="100" class="form-range col-16" id="coolLed"> 
                 <button class="btn btn-primary">set</button>
                 <button class="btn btn-danger">clear</button>
               </form>

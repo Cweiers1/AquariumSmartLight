@@ -1,23 +1,19 @@
-const bootstrap = require("bootstrap");
+
+const colorPicker = document.getElementById("colorPicker");
+const server = "http://localhost:5000";
+let currentLight = getColor();
 
 
-    //starting of a canvas api color picker, being saved to work on later
+//colorPicker.onsubmit = () => {
+  //  fetch("http")
+//}
 
-/*    let canvas = document.getElementById("color-wheel-picker");
-    let ctx = canvas.getContext("2d");
-    let grd = ctx.createLinearGradient(0, 0, 200, 0);
-    grd.addColorStop(0, "red");
-    grd.addColorStop(1, "white");
-    ctx.fillstyle = grd;
-    ctx.fillRect(10, 10, 150, 80)
-*/
+console.log(currentLight);
+console.log("test")
 
-
-
-
-
-window.onload = () => {
-    
+//this returns undefinded, not waiting for result from server?
+function getColor() {
+    fetch(server + "/lightcolor")
+    .then((response) => response.json())
+    .then((data) => {return data});
 }
-   
-
