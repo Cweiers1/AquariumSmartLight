@@ -2,39 +2,87 @@ const express = require("express");
 const app = express()
 const port = 5000;
 //const Gpio = require("pigpio").Gpio;
+const path = require("path");
+const { networkInterfaces } = require("os");
+const fs = require("fs");
+import { EventEmitter } from "node:events";
+const jsonLoaded = new EventEmitter;
+let schedule;
 
-const { Worker, parentPort, workerData, isMainThread } = require('worker_threads');
-const { dataPort, reqPort, resPort } = new MessageChannel();
 
+//reads file and sends event when loaded
+fs.readFile("Schedule.json", (err, data) => {
+    if (err) throw err;
+    schedule = JSON.parse(data);
+    jsonLoaded.emit("load");
+});
 
-//spawns a worker thread to run the web server
-const webServer = () => {
-    return new Promise((resolve, reject) => {
-        const worker = new Worker("./webServer.js");
-        worker.on("message", resolve);
-        worker.on("error", reject);
-        worker.on("exit", (code) => {
-            if (code !== 0) {
-                reject(new Error(`Webserver proccess stopped with${code} exit code`));
-            }
+jsonLoaded.on("load"), () => {
+    for (let i; i < schedule.length; i++) {
+        if (Date(schedule[i] <= Date.now)) {
             
-        })
-    })
+        }
+    }
 }
 
-//waits for a return from the web server and logs the state of the server startup
-const run = async () => {
-    const result = await webServer();
-    console.log(result);
-}
 
-run().catch(err => console.error(err));
 
-dataPort.once("message", (message) => {
-    console.log(message)
+
+console.log(schedule)    
+console.log(`Server has started on port ${port}`)
+
+//serving our static content and bootstrap modules
+app.use(
+    "/",
+    express.static("public")
+    )
+
+app.use(
+    "/css",
+    express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
+)
+
+app.use(
+    "/js",
+    express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+)
+
+//get current light color, send it as http response
+app.get(
+    "/lightcolor", (req, res) => {
+        
+    }
+)
+    
+app.get(
+    "/Schedule", (req, res) => {
+        
+    }
+)
+    
+//endpoint used to change light color
+app.post(
+    "/lightColor/:color", (req, res) => {
+        
+    }
+)
+
+//endpoints used to change lighing schedule, takes the new json schedule
+app.post(
+    "/Schedule/add/",(req, res) => {
+
+    }
+)
+
+app.delete(
+    "/Schedule/deleteall/", (req, res) => {
+
+    }
+)
+
+app.listen(port, () => {
+    console.log("Server listening");
 })
-
-
 
 
 

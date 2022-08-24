@@ -1,3 +1,11 @@
 {
-    
+    "11:00" : {
+        "eventType" : "change",
+        "Color" : "#FF00FF",
+        "Fade" : "true"
+    },
+
+    "20:00" : {
+        "eventType" : "off"
+    }
 }
