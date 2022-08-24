@@ -1,5 +1,6 @@
 {
     "11:00" : {
+        "eventLocation" : "light",
         "eventType" : "change",
         "Color" : "#FF00FF",
         "Fade" : "true"

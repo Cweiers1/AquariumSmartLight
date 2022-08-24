@@ -1,11 +1,9 @@
-const express = require("express");
-const app = express()
-const port = 5000;
+
 //const Gpio = require("pigpio").Gpio;
 const path = require("path");
 const { networkInterfaces } = require("os");
 const fs = require("fs");
-import { EventEmitter } from "node:events";
+const { EventEmitter } = require("node:events");
 const jsonLoaded = new EventEmitter;
 let schedule;
 
@@ -17,20 +15,32 @@ fs.readFile("Schedule.json", (err, data) => {
     jsonLoaded.emit("load");
 });
 
-jsonLoaded.on("load"), () => {
-    for (let i; i < schedule.length; i++) {
-        if (Date(schedule[i] <= Date.now)) {
-            
+
+jsonLoaded.on("load", () => {
+    //TO DO: need to parse our schedule into ISO 8601 format
+    console.log(Date.parse(Object.keys(schedule)[0]), Date.now())
+    for (let i=0; i > Object.keys(schedule).length-1; i++) {
+        if (Date.parse(Object.keys(schedule)[i]) >= Date.now()) {
+            console.log("test")
+            setAlarm(Object.keys(schedule)[i], schedule[Object.keys(schedule)[i]]);
+            return;
         }
     }
+}
+)
+
+function setAlarm(time, object) {
+    console.log(time, object);
 }
 
 
 
 
-console.log(schedule)    
+//  WEB SERVER CODE STARTS HERE
+const express = require("express");
+const app = express()
+const port = 5000;
 console.log(`Server has started on port ${port}`)
-
 //serving our static content and bootstrap modules
 app.use(
     "/",
