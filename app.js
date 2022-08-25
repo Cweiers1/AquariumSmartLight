@@ -3,7 +3,7 @@
 const path = require("path");
 const { networkInterfaces } = require("os");
 const fs = require("fs");
-const { EventEmitter } = require("node:events");
+const { EventEmitter } = require("events");
 const jsonLoaded = new EventEmitter;
 let schedule;
 
@@ -18,7 +18,7 @@ fs.readFile("Schedule.json", (err, data) => {
 
 jsonLoaded.on("load", () => {
     //TO DO: need to parse our schedule into ISO 8601 format
-    console.log(Date.parse(Object.keys(schedule)[0]), Date.now())
+
     for (let i=0; i > Object.keys(schedule).length-1; i++) {
         if (Date.parse(Object.keys(schedule)[i]) >= Date.now()) {
             console.log("test")
