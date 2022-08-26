@@ -1,12 +1,11 @@
 {
-    "11:00" : {
-        "eventLocation" : "light",
-        "eventType" : "change",
-        "Color" : "#FF00FF",
-        "Fade" : "true"
-    },
+   "events" : [ 
+        {"time" : "11:00",
+        "location" : "light",
+        "hex" : "#00FF00"},
 
-    "20:00" : {
-        "eventType" : "off"
-    }
+        {"time" : "12:00",
+        "days" : [1, 4],
+        "location" : "fert"}
+    ]
 }

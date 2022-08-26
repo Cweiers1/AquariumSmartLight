@@ -12,37 +12,92 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Navbar</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link"  href="index.html">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Schedule.html">schedule</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="Lighting.html">Lighting</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="Settings.html">Settings</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown link
-                        </a>
-                        <ul class="dropdown-menu" id="controlSlector">
-                          <li><a class="dropdown-item" href="#">Main</a></li>
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link"  href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="Schedule.html">schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Lighting.html">Lighting</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Settings.html">Settings</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown link
+                                </a>
+                                <ul class="dropdown-menu" id="controlSlector">
+                                    <li><a class="dropdown-item" href="#">Main</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                      </li>
-                    </ul>
-                  </div>
+                    </div>
                 </div>
-              </nav>
-              
+            </nav>
+            <div class="row">
+                <ul class="col-4 list-group m-5">
+                    <li class="list-group-item d-flex flex-row justify-content-between">
+                        <div>
+                            <h2 class="w-25 d-inline">*</h2>
+                            <p class="d-inline">am</p>
+                        </div>
+                    <button class="btn btn-primary">Edit</button>
+                    </li>
+                    <li class="list-group-item d-flex flex-row justify-content-between">
+                        <div>
+                            <h2 class="w-25 d-inline">*</h2>
+                            <p class="d-inline">am</p>
+                        </div>
+                        <button class="btn btn-primary">Edit</button>
+                    </li>
+                        <li class="list-group-item d-flex flex-row justify-content-between">
+                        <div>
+                            <h2 class="w-25 d-inline">*</h2>
+                            <p class="d-inline">am</p>
+                        </div>
+                        <button class="btn btn-primary">Edit</button>
+                  </li>
+                  <li class="list-group-item d-flex flex-row justify-content-between">
+                    <div>
+                        <h2 class="w-25 d-inline">*</h2>
+                        <p class="d-inline">am</p>
+                    </div>
+                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alarmModal">Edit</button>
+                  </li>
+                </div>
+                </div>
+                <div class="modal fade" id="alarmModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Edit Event</h3>
+                                <form>
+                                    <div class="m-2">
+                                        <label for="eventSelect" class="form-label">Event Location:</label>
+                                            <select class="form-select form-control" id="eventSelect">
+                                                <option selected>Select</option>
+                                                <option value="light">Light</option>
+                                                <option value="fert">Fertilizer</option>
+                                                <option value="c02">c02</option>
+                                            </select>
+											<label for="timeSelect" class="form-label">Select Time:</label>
+                                            <input type="time" class="form-time form-control" id="timeSelect">
+                                    <div class="hstack gap-3">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         
         <script src = "./js/bootstrap.bundle.min.js"></script>
