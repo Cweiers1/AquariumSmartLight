@@ -40,7 +40,7 @@ console.log(currentHour());
 
 //  WEB SERVER CODE STARTS HERE
 const express = require("express");
-const app = express()
+const app = express();
 const port = 5000;
 console.log(`Server has started on port ${port}`)
 //serving our static content and bootstrap modules
@@ -56,41 +56,10 @@ app.use(
 
 app.use(
 	"/js",
-	express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+	express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")),
+	express.static(path.join(__dirname, "node_modules/@jaames/iro/dist"))
 )
 
-//get current light color, send it as http response
-app.get(
-	"/lightcolor", (req, res) => {
-        
-	}
-)
-    
-app.get(
-	"/Schedule", (req, res) => {
-        
-	}
-)
-    
-//endpoint used to change light color
-app.post(
-	"/lightColor/:color", (req, res) => {
-        
-	}
-)
-
-//endpoints used to change lighing schedule, takes the new json schedule
-app.post(
-	"/Schedule/add/",(req, res) => {
-
-	}
-)
-
-app.delete(
-	"/Schedule/deleteall/", (req, res) => {
-
-	}
-)
 
 app.listen(port, () => {
 	console.log("Server listening");

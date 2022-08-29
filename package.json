@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Cweiers1/AquariumSmartLight#readme",
   "dependencies": {
+    "@jaames/iro": "^5.5.2",
     "bootstrap": "^5.2.0",
     "express": "^4.18.1",
     "node-gyp": "^9.1.0",
