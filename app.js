@@ -16,6 +16,14 @@ const currentDay = () => {
 	return currentTime.getDay();
 }
 //reads file and sends event when loaded
+fs.watchFile("Schedule.json", () => {
+	fs.readFile("Schedule.json", (err, data) => {
+		if (err) throw err;
+		schedule = JSON.parse(data);
+		loadNextEvent();
+	});
+})
+
 fs.readFile("Schedule.json", (err, data) => {
 	if (err) throw err;
 	schedule = JSON.parse(data);
@@ -34,9 +42,6 @@ function loadNextEvent() {
 function setAlarm(time, object) {
 	console.log(time, object);
 }
-
-
-console.log(currentHour());
 
 //  WEB SERVER CODE STARTS HERE
 const express = require("express");
@@ -60,14 +65,19 @@ app.use(
 	express.static(path.join(__dirname, "node_modules/@jaames/iro/dist"))
 )
 
+app.use(express.json())
 
 app.listen(port, () => {
 	console.log("Server listening");
 })
 
+app.get("/schedule", (req, res) => {
+	res.send(schedule);
+})
 
-
-
+app.post("/schedule", (req, res) => {
+	
+})
 
 
 

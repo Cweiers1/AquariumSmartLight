@@ -13,12 +13,14 @@
 
 	<template id="listItem">
 		<li class="list-group-item d-flex flex-row justify-content-between">
-			<div>
-				<h2 class="w-25 d-inline"><slot name="Time">*</slot></h2>
-				<p class="d-inline"><slot name="amPm">*</slot></p>
+			<div class="d-flex flex-direction-row justify-content-between">
+				<h2 class="w-25 d-inline"></h2>
+				<p class="d-inline"></p>
 			</div>
-			<button class="btn btn-danger" data-targetAlarm="" >
-			<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alarmModal" data-targetAlarm="">Edit</button>
+			<div class="d-flex flex-direction-row justify-content-end gap-1">
+				<button class="btn btn-danger" data-targetAlarm="" >Delete</button>
+				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alarmModal" data-targetAlarm="">Edit</button>
+			</div>
 		</li>
 	</template>
 
@@ -58,7 +60,7 @@
 			</div>
 		</nav>
 		<div class="row justify-content-between">
-			<div class="col-4">
+			<div class="col-5">
 				<ul class="list-group m-5" id="alarmList">
 
 				</ul>
@@ -72,8 +74,6 @@
 				</button>
 			</div>
 		</div>
-
-
 
 		<div class="modal fade" id="alarmModal">
 			<div class="modal-dialog modal-dialog-centered">

@@ -6,6 +6,10 @@
 
         {"time" : "12:00",
         "days" : [1, 4],
-        "location" : "fert"}
+        "location" : "fert"},
+
+        {"time" : "13:00"},
+
+        {"time" : "14:00"}
     ]
 }

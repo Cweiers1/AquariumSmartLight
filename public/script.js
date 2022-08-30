@@ -6,8 +6,6 @@ const color = document.getElementById("color");
 const kelvinSelect = document.getElementById("kelvinSelect");
 const rgbToggle = document.getElementById("rgbToggle");
 const wwToggle = document.getElementById("wwToggle");
-const alarmList = document.getElementById("alarmList");
-let schedule = fetch(`http://${location.hostname}:`)
 
 
 const iroColorPicker =  new iro.ColorPicker(colorWheel, {
@@ -34,7 +32,7 @@ const iroKelvinPicker = new iro.ColorPicker("#kelvinSelect", {
   ]
 })
 
- 
+
 eventSelect.addEventListener("change", () => {
   if ((eventSelect.value == "light") && (eventType.value == "change")) {
     color.setAttribute("class", "d-block")
@@ -67,4 +65,36 @@ wwToggle.addEventListener("change", () => {
   }
 })
 
-let fragment = new DocumentFragment();
+const alarmList = document.getElementById("alarmList");
+const listItem = document.getElementById("listItem");
+const fragment = new DocumentFragment();
+let schedule;
+
+fetch(`http://${location.hostname}:5000/schedule`)
+.then((response) => response.json())
+.then((data) => {
+ schedule = data;
+ renderAlarms(data);
+})
+
+function renderAlarms(data) {
+  for(let i=0; i < data.events.length; i++) {
+    let subFragment = listItem.content.cloneNode(true);
+    let alarmHour = schedule.events[i].time.substring(0,2);
+    let alarmMin = schedule.events[i].time.substring(3,5);
+    if (alarmHour > 12) {
+      subFragment.querySelector("div h2").innerHTML = `${alarmHour-12}:${alarmMin}`;
+      subFragment.querySelector("div p").innerHTML = "pm";
+      } else if (alarmHour == 12) {
+        subFragment.querySelector("div h2").innerHTML = `${alarmHour}:${alarmMin}`;
+        subFragment.querySelector("div p").innerHTML = "pm";
+      } else {
+        subFragment.querySelector("div h2").innerHTML = `${alarmHour}:${alarmMin}`;
+        subFragment.querySelector("div p").innerHTML = "am";
+      }
+    fragment.appendChild(subFragment);
+  }
+  alarmList.appendChild(fragment);
+}
+
+document.querySelector
