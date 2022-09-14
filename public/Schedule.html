@@ -12,14 +12,14 @@
 <body>
 
 	<template id="listItem">
-		<li class="list-group-item d-flex flex-row justify-content-between">
-			<div class="d-flex flex-direction-row justify-content-between">
-				<h2 class="w-25 d-inline"></h2>
+		<li class="list-group-item d-flex flex-row justify-content-between gap-1">
+			<div class="d-flex flex-direction-row justify-content-between gap-1">
+				<h2 class="d-inline"></h2>
 				<p class="d-inline"></p>
 			</div>
-			<div class="d-flex flex-direction-row justify-content-end gap-1">
-				<button class="btn btn-danger" data-targetAlarm="" >Delete</button>
-				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alarmModal" data-targetAlarm="">Edit</button>
+			<div class="d-flex flex-direction-row justify-content-end gap-2">
+				<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alarmModal">Edit</button>
 			</div>
 		</li>
 	</template>
@@ -60,14 +60,14 @@
 			</div>
 		</nav>
 		<div class="row justify-content-between">
-			<div class="col-5">
+			<div class="col-6">
 				<ul class="list-group m-5" id="alarmList">
 
 				</ul>
 			</div>
 			
 			<div class="col-1">
-				<button id="eventadd" class="btn btn-primary m-2">
+				<button id="eventadd" class="btn btn-primary m-2" data-bs-target="#alarmModal" data-bs-toggle="modal" onclick="newAlarmModal()">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
 					  </svg>
@@ -75,17 +75,37 @@
 			</div>
 		</div>
 
+		<div class="modal fade" id="deleteModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header hstack m-2">
+						<h2>Are you sure?</h2>
+					</div>
+					<fieldset>
+						<div class="d-flex flex-direction-row justify-content-around gap-1">
+							<input type="number" id="deleteNum" class="d-none">
+							<button class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+							<button class="btn btn-danger" onclick="deleteEvent()" data-bs-dismiss="modal">Yes</button>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+
 		<div class="modal fade" id="alarmModal">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h3 class="modal-title">Edit Event</h3>
-						<form>
+						<h3 class="modal-title" id="modalTitle">Edit Event</h3>
+					</div>
+						<form id="form">
 							<div class="m-2">
+
+								<input type="number" class="d-none" id="eventNum">
 
 								<label for="eventSelect" class="form-label">Event Location:</label>
 								<select class="form-select form-control" id="eventSelect">
-									<option selected>Select</option>
+									<option value="selected" selected>Select</option>
 									<option value="light">Light</option>
 									<option value="fert">Fertilizer</option>
 									<option value="c02">c02</option>
@@ -93,10 +113,9 @@
 
 								<label for="eventType" class="form-label my-2">Event Type:</label>
 								<select class="form-select form-control" id="eventType">
-									<option selected>Select</option>
+									<option  value="selected" selected>Select</option>
 									<option value="on">On</option>
-									<option value="off">Off</option>
-									<option value="change">Change</option>	
+									<option value="off">Off</option> 
 								</select>
 
 
@@ -124,7 +143,22 @@
 								<label for="timeSelect" class="form-label my-2">Select Time:</label>
 								<input type="time" class="form-time form-control" id="timeSelect">
 
-								<fieldset class="mt-3">
+								<fieldset>
+									<legend>Select Frequency:</legend>
+									<div class="d-flex flex-direction-row justify-content-around">
+										<div class="form-check">
+											<input type="radio" class="form-check-input d-block" id="daily" name="frequency" value="daily" checked>
+											<label for="daily" class="form-check-label">Daily</label>
+										</div>
+										<div class="form-check">
+											<input type="radio" class="form-check-input d-block" id="weekly" name="frequency" value="weekly">
+											<label for="weekly" class="form-check-label">Weekly</label>
+										</div>
+									</div>
+								</fieldset>
+
+
+								<fieldset class="mt-3" id="weeklySelect">
 									<legend>Select days of event:</legend>
 									<div class="h-stack justify-content-between form-check">
 										<div class="form-check form-check-inline">
@@ -160,18 +194,19 @@
 								
 								<div class="h-stack gap-4 mt-3">
 									<input type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal" value="Cancel">
-									<input type="submit" value="Submit" class="btn btn-primary">
+									<input type="submit" value="Submit" class="btn btn-primary" id="submit">
 								</div>
 						</form>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+
+	<script src="iro.min.js"></script>
 	<script src="./js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-	<script src="script.js"></script>
+	<script src="script.js" defer></script>
+
 
 </body>
 

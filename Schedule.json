@@ -1,15 +1,25 @@
 {
    "events" : [ 
-        {"time" : "11:00",
-        "location" : "light",
-        "hex" : "#00FF00"},
+        {"status"   : "on",
+         "time"     : "0400",
+         "location" : "light",
+         "rgbColor" : "#00FF00",
+         "kelvin"   : "1000"},
 
-        {"time" : "12:00",
+        {"time" : "1200",
         "days" : [1, 4],
         "location" : "fert"},
 
-        {"time" : "13:00"},
+       {"status" :"on",
+        "time" : "1300",
+        "location": "light",
+        "rgbColor": false,
+        "kelvin" : "1000"},
 
-        {"time" : "14:00"}
+        {"status" :"on",
+        "time" : "0100",
+        "location": "light",
+        "rgbColor": "#FF00FF",
+        "kelvin" : false}
     ]
 }
