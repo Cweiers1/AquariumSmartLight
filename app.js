@@ -1,5 +1,5 @@
 
-const Gpio = require("pigpio").Gpio;
+//const Gpio = require("pigpio").Gpio;
 const path = require("path");
 const fs = require("fs");
 let schedule;
