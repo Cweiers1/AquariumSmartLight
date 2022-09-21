@@ -1,14 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import DropDown from "./dropdown";
 
 export default function EditMenu(props) {
     const view = props.veiw;
+    const [dropdown, setDropdown] = useState("select")
     
     return (
-        <form>
+        <form className="grow">
             <input type="number" className="d-none" id="eventNum" />
 
-        <DropDown option={["option1", "option2", "option3"]} />
+            <DropDown option={["on", "off"]} state={[dropdown, setDropdown]} />
         </form>
 
     )

@@ -46,7 +46,7 @@ function App() {
         break;
       case ("schedule"):
         return (
-          <div>
+          <div className="flex flex-row w-screen">
             <AlarmList obj={schedule} viewState={[alarmView, setView]} />
             <EditMenu view={alarmView} />
           </div>

@@ -3,11 +3,11 @@ import react, { useState } from "react";
 export default function DropDown(props) {
 
     let arr = props.option;
-    const [ value, setValue ] = useState()
+
+    const [ value, setValue ] = props.state
 
     function handleChange(event) {
         setValue(event.target.value)
-        console.log(value)
     }
 
 
