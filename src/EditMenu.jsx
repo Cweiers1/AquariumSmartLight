@@ -1,13 +1,15 @@
 import React, { useState } from "react"
 import DropDown from "./dropdown";
+import ColorPicker from "./colorpicker";
 
 export default function EditMenu(props) {
-    const view = props.veiw;
+    const view = props.viewState;
     const [dropdown, setDropdown] = useState("select")
     
     return (
         <form className={style}>
             <input type="number" className="hidden" id="eventNum" />
+            <ColorPicker />
 
             <DropDown option={["on", "off"]} state={[dropdown, setDropdown]} label={"Select Event :"} />
         </form>

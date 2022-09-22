@@ -25,8 +25,8 @@ export default function DropDown(props) {
     )
 }
 
-const labelStyle = "";
+const labelStyle = "m-1";
 
-const selectStyle = "m-2 p-1 rounded-lg";
+const selectStyle = "m-1 p-1 rounded-lg";
 
-const rootStyle = "flex flex-col w-40 m-2";
+const rootStyle = "flex flex-col w-40 m-3";
