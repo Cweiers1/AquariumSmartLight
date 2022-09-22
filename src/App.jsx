@@ -46,7 +46,7 @@ function App() {
         break;
       case ("schedule"):
         return (
-          <div>
+          <div className="grid grid-row-1 grid-cols-4 h-screen">
             <AlarmList obj={schedule} viewState={[alarmView, setView]} />
             <EditMenu view={alarmView} />
           </div>

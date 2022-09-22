@@ -9,7 +9,7 @@ export default function AlarmList(props) {
   
 
     return(
-        <ul className="flex flex-col p-2 m-4 border-2 rounded-lg w-1/4 h-full border-slate-100 bg-slate-50">
+        <ul className={style}>
             {obj.map((ob, i) => {
                 return <Alarm obj={ob} key={i} viewState={props.viewState}/>
             })}
@@ -17,4 +17,4 @@ export default function AlarmList(props) {
     )
 }
 
-
+const style = "flex flex-col p-2 m-4 border-2 rounded-lg col-span-1 h-max border-slate-100 bg-slate-50";

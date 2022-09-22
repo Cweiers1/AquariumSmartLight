@@ -5,11 +5,13 @@ export default function EditMenu(props) {
     const view = props.veiw;
     
     return (
-        <form>
-            <input type="number" className="d-none" id="eventNum" />
+        <form className={style}>
+            <input type="number" className="hidden" id="eventNum" />
 
-        <DropDown option={["option1", "option2", "option3"]} />
+        <DropDown option={["option1", "option2", "option3"]} label={"Select Event :"} />
         </form>
 
     )
 }
+
+const style = "border-2 rounded-lg border-slate-100 col-span-3 m-4 shadow-md";
